@@ -4,6 +4,7 @@ import SiteNavbar from 'components/SiteNavbar';
 import Head from 'next/head';
 
 const PageLayout = ({children}) => {
+
     return (
         <div>
             <Head>

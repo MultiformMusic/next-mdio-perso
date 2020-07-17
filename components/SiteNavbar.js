@@ -1,7 +1,11 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import Link from 'next/link';
 
+import { useConfiguration } from 'providers/SiteProvider';
+
 const SiteNavbar = () => {
+
+    const {language, changeLanguage} = useConfiguration();
 
     return (
         <Navbar
@@ -25,8 +29,20 @@ const SiteNavbar = () => {
                         }
                     />
                 </Nav>
-                <img src="/icon/IconEnglishLanguage.png" width="32" className="ml-3 md-navbar-icon" />
+
             </Navbar.Collapse>
+                { language === 'Fr' && 
+
+                    <div onClick={() => changeLanguage('En')}>
+                        <img src="/icon/IconEnglishLanguage.png" width="32" className="ml-3 md-navbar-icon" />
+                    </div>
+                }
+                { language === 'En' && 
+
+                    <div onClick={() => changeLanguage('Fr')}>
+                        <img src="/icon/IconFrenchLanguage.png" width="32" className="ml-3 md-navbar-icon" />
+                    </div>
+                }
         </Navbar>
     )
 }

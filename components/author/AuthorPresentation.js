@@ -1,10 +1,9 @@
 import AuthorContent from "./AuthorContent";
-import { urlFor } from 'lib/api';
-import { Row, Col, Media, Image } from "react-bootstrap";
+import { Row, Col, Media } from "react-bootstrap";
 
 const AuthorPresentation = ({authorData, language}) => {
 
-    console.log("********************* ", authorData);
+    //console.log("********************* ", authorData);
 
     const content = language == 'Fr' ? authorData.authorContentFr : authorData.authorContentEn
 

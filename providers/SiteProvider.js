@@ -4,13 +4,19 @@ import { SiteConfiguration, SiteContext } from 'context/SiteContext';
 const SiteProvider = ({children}) => {
 
     const [language, setLanguage] = useState(SiteConfiguration.language);
-    console.log('Site Provider language = ', language);
+    const {projectId} = SiteConfiguration;
+
+    const changeLanguage = language => {
+        setLanguage(language);
+    }
 
     const siteConfigurationApi = useMemo(() => {
         return {
-            language
+            language,
+            changeLanguage,
+            projectId
         }
-    }, [language]);
+    }, [language, projectId]);
 
     return (
         <SiteContext.Provider value={siteConfigurationApi}>

@@ -1,13 +1,12 @@
 import PageLayout from "components/PageLayout";
 import { libGetAuthorPresentation } from 'lib/api';
 import AuthorPresentation from 'components/author/AuthorPresentation';
-import { useConfiguration } from '../providers/SiteProvider';
+import { useConfiguration } from 'providers/SiteProvider';
 
 
 export default ({authorData}) => {
 
   const {language} = useConfiguration();
-  console.log('language : ', language);
 
   return (
 
