@@ -4,10 +4,11 @@ html, body {
     font-size: 16px;
     font-weight: 300;
     color: #dcdcdc !important;
-    background-color: #31373A !important;
+    background-color: #4D4C58 !important;
 }
 
 .md-navbar {
+
     &-brand {
       color: black;
       font-size: 20px;
@@ -84,6 +85,8 @@ html, body {
         cursor: pointer;
     }
 }
+
+// **** AUTHOR
   
 .author-content-text {
     font-family: 'Nunito', sans-serif;
@@ -100,4 +103,112 @@ html, body {
         float: right;
         margin-left: 30px;
     }
+}
+
+// **** CARD ITEM
+
+.card.md-card {
+
+  margin-bottom: 80px;
+
+  .card-body-wrapper {
+    height: 465px;
+    background-color: #232129;
+    border-radius: 15px;
+    box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
+    min-height: 280px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    padding-bottom: 40px;
+    &.no-image {
+      min-height: auto;
+    }
+  }
+
+  .card-header {
+    background-color: transparent;
+    padding: 0px 0px 15px;
+    img {
+      --size: 45px;
+      background-color: rgb(10, 7, 7);
+      border: 1px solid #232129;
+      border-radius: 50%;
+      // box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
+      // left: 10px;
+      // position: absolute;
+      top: calc(-1 * (var(--size) / 2));
+      width: var(--size);
+      height: var(--size);
+      object-fit: cover;
+      background-color: #232129;
+    }
+  }
+
+  .card-img {
+
+    width: 270px;
+    height: 250px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    padding-left: 12px;
+  }
+
+  .card-text {
+    font-size: 1.2rem;
+    padding-left: 12px;
+    color: rgb(231, 156, 156);
+
+    &-title {
+      font-family: 'Sansita', sans-serif;
+    }
+
+    &-subtitle {
+      font-size: 1rem;
+      color: rgb(207, 214, 214);
+      font-family: 'Livvic', sans-serif;
+    }
+  }
+
+  .card-main-title {
+    font-size: 22px;
+    height: 60px;
+  }
+}
+
+.view.overlay {
+  transition: all ease 0.4s;
+
+  &:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+}
+
+.card-button {
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: var(--font-family-primary);
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: .15rem;
+  padding-top: 1.5rem !important /* @TODO temp !!!*/;
+  padding: .75rem 1.5rem;
+  background-color: hsl(22, 93%, 60%);
+  border-color: hsl(210, 5%, 36%);
+  box-shadow: 0 5px 0 hsl(210, 5%, 20%);
+  bottom: -45px;
+  position: absolute;
+  right: 1.5rem;
+  transition: all ease 0.4s;
+
+  &:hover {
+    background-color: hsl(22, 79%, 50%);;
+    border-color: hsl(210, 5%, 41%);
+    -webkit-transform: translateY(.25rem);
+    transform: translateY(.25rem);
+  }
 }

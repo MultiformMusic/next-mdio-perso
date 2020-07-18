@@ -1,7 +1,7 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import Link from 'next/link';
-
 import { useConfiguration } from 'providers/SiteProvider';
+import { getTranslation } from 'context/Translate';
 
 const SiteNavbar = () => {
 
@@ -10,8 +10,8 @@ const SiteNavbar = () => {
     return (
         <Navbar
             className="navbar-dark bg-dark"
-            bg="transparent"
             expand="lg" 
+            fixed="top"
         >
             <Navbar.Brand className="md-navbar-brand">
                 <Link href="/">
@@ -24,7 +24,7 @@ const SiteNavbar = () => {
                     <Nav.Link 
                         as={() => 
                             <Link href='/'>
-                                <a className="md-navbar-link" style={{textDecoration: 'none'}}>Home</a>
+                                <a className="md-navbar-link" style={{textDecoration: 'none'}}>{getTranslation('home', language)}</a>
                             </Link>
                         }
                     />
