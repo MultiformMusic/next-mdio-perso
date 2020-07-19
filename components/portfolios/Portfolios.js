@@ -27,6 +27,15 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
     }, [])
 
 
+    const renderLogos = logos => {
+
+        return logos.map(logo => <Card.Img
+            src={
+                urlFor(logo.logoImage).url()
+            }
+        />)
+    }
+
     const renderPortfolios = () => {
 
         return portfolios.map((portfolio, index) => {
@@ -44,11 +53,9 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
                         <Card className={`md-card ${mode}`}>
                             <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`}>
                                 <Card.Header className="d-flex flex-row">
-                                    <Card.Img
-                                        src={
-                                            urlFor(portfolio.logo.logoImage).url()
-                                        }
-                                    />
+
+                                    {renderLogos(portfolio.logos)}
+
                                     <div>
                                         <Card.Title className="font-weight-bold mb-1">{portfolio.logo.name}</Card.Title>
                                         <Card.Text className="card-text-title">{portfolio.title[language.toLowerCase()]}</Card.Text>
@@ -88,9 +95,10 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
     return (
         <div>
+
+            {/* {JSON.stringify(portfolios)} */}
+
             <div style={{position: "relative", top: "-70px", visibility: "hidden"}} id="portfolios">
-
-
             </div>
             <div className="portfolios-title">
                 {getTranslation('portfolios', language)} {'-----'} 
