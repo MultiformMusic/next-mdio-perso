@@ -6,10 +6,11 @@ import { getTranslation } from 'context/Translate';
 const SiteNavbar = () => {
 
     const {language, changeLanguage} = useConfiguration();
+    const navBackground = true;
 
     return (
         <Navbar
-            className="navbar-dark bg-dark"
+            className="navbar-dark navbar-background"
             expand="lg" 
             fixed="top"
         >
@@ -28,9 +29,15 @@ const SiteNavbar = () => {
                             </Link>
                         }
                     />
+                    <Nav.Link 
+                        as={() => 
+                            <Link href='/'>
+                                <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('portfolios', language)}</a>
+                            </Link>
+                        }
+                    />
                 </Nav>
 
-            </Navbar.Collapse>
                 { language === 'Fr' && 
 
                     <div onClick={() => changeLanguage('En')}>
@@ -43,6 +50,8 @@ const SiteNavbar = () => {
                         <img src="/icon/IconFrenchLanguage.png" width="32" className="ml-3 md-navbar-icon" />
                     </div>
                 }
+                <div className="ml-5"></div>
+            </Navbar.Collapse>
         </Navbar>
     )
 }

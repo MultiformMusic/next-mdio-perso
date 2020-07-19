@@ -11,6 +11,7 @@ const PageLayout = ({children}) => {
                 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@300;400&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet"></link>
             </Head>
             <Container>
             

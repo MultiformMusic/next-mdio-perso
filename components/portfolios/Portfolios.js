@@ -3,22 +3,27 @@ import { urlFor } from 'lib/api';
 import Link from 'next/link';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Fade } from 'react-awesome-reveal';
+import { getTranslation } from 'context/Translate';
 
 
-export const Portfolios = ({portfolios, language, mode}) => {
+export const Portfolios = ({portfolios, sectionDescription, language, mode}) => {
  
-    const [directions, setDirections] = useState(["left", "top", "right"])
+    const [directions, setDirections] = useState(["left", "top", "right"]);
+    const [classLowWidth, setClassLowWidth] = useState(false);
+    const portfoliosDescription = sectionDescription.filter(item => item.name === 'Portfolios')[0];
 
     //let directions = ["left", "top", "right"];
     let count = 0;
 
     useEffect(() => {
 
-        console.log(window)
-        if (window.innerWidth < 400) {
+        if (window.innerWidth < 350) {
+            setClassLowWidth(true);
             setDirections(["top", "top", "top"]);
-           // directions = ["top", "top", "top"];
+        } else if (window.innerWidth < 768) {
+            setDirections(["top", "top", "top"]);
         }
+
     }, [])
 
 
@@ -34,12 +39,10 @@ export const Portfolios = ({portfolios, language, mode}) => {
             count++;
 
             return (
-
-                
                 <Col key={portfolio.slug} md="6" lg="4"> 
                     <Fade direction={direction} triggerOnce>
                         <Card className={`md-card ${mode}`}>
-                            <div className='card-body-wrapper'>   
+                            <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`}>
                                 <Card.Header className="d-flex flex-row">
                                     <Card.Img
                                         src={
@@ -60,6 +63,7 @@ export const Portfolios = ({portfolios, language, mode}) => {
                                                 .url()
                                             }
                                             alt="Card image cap"
+                                            height="250"
                                     />
                                 </div>
                                 </div>
@@ -69,14 +73,14 @@ export const Portfolios = ({portfolios, language, mode}) => {
                             </div>
                             <Link href="#" >
                                 <a className="card-button" style={{textDecoration: 'none', color: 'white'}}>
-                                    Read More
+                                    {getTranslation('readMore', language)}
                                 </a>
                             </Link>
                         </Card> 
                     </Fade>
                 </Col> 
-               
-            )
+                
+                )
             }                   
         
         )
@@ -84,6 +88,16 @@ export const Portfolios = ({portfolios, language, mode}) => {
 
     return (
         <div>
+            <div className="portfolios-title">
+                {getTranslation('portfolios', language)} {'-----'} 
+                <br/>
+                <div className="portfolios-title-number">
+                    {portfolios.length} {' '} {getTranslation('projects', language)}
+                </div>
+            </div>
+            <div className="section-description">
+                {portfoliosDescription.description[language.toLowerCase()]} 
+            </div>
             <Row>
                 {renderPortfolios()}
             </Row>

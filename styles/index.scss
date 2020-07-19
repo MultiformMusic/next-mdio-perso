@@ -7,6 +7,10 @@ html, body {
     background-color: #4D4C58 !important;
 }
 
+.navbar-brand {
+  padding-left: 25px;
+}
+
 .md-navbar {
 
     &-brand {
@@ -86,10 +90,18 @@ html, body {
     }
 }
 
+.navbar-background {
+  background-color: rgba(8, 8, 8, 0.8);
+}
+
+
 // **** AUTHOR
   
 .author-content-text {
     font-family: 'Nunito', sans-serif;
+    background-color: rgb(77, 54, 55);
+    padding: 15px 30px 2px 30px !important;
+    margin-bottom: 20px;
 }
 
 .author-content-img {
@@ -105,7 +117,7 @@ html, body {
     }
 }
 
-// **** CARD ITEM
+// **** PORTFOLIOS CARD ITEM
 
 .card.md-card {
 
@@ -123,6 +135,10 @@ html, body {
     padding-bottom: 40px;
     &.no-image {
       min-height: auto;
+    }
+
+    &-low-width {
+      height: 495px; 
     }
   }
 
@@ -143,12 +159,6 @@ html, body {
       object-fit: cover;
       background-color: #232129;
     }
-  }
-
-  .card-img {
-
-    width: 270px;
-    height: 250px;
   }
 
   .card-title {
@@ -211,4 +221,19 @@ html, body {
     -webkit-transform: translateY(.25rem);
     transform: translateY(.25rem);
   }
+}
+
+.portfolios-title {
+  font-family: 'El Messiri', sans-serif;
+  font-size: 2rem;
+
+  &-number {
+    font-size: 1rem;
+  }
+}
+
+.section-description {
+  font-family: 'Livvic', sans-serif;
+  color: rgb(248, 192, 145);
+  margin-bottom: 2rem;
 }
