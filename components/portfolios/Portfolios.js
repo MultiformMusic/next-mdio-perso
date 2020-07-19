@@ -88,6 +88,10 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
     return (
         <div>
+            <div style={{position: "relative", top: "-70px", visibility: "hidden"}} id="portfolios">
+
+
+            </div>
             <div className="portfolios-title">
                 {getTranslation('portfolios', language)} {'-----'} 
                 <br/>

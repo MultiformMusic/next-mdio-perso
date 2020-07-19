@@ -22,6 +22,13 @@ const PageLayout = ({children}) => {
                 </div>
 
             </Container>
+            <style global jsx>
+            {`
+                html {
+                    scroll-behavior: smooth;
+                    }
+            `}
+            </style>
         </div>
     )
 }
