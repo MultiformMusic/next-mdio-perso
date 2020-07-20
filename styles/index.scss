@@ -224,7 +224,7 @@ html, body {
   }
 }
 
-.portfolios-title {
+.section-title {
   font-family: 'El Messiri', sans-serif;
   font-size: 2rem;
 
@@ -237,4 +237,24 @@ html, body {
   font-family: 'Livvic', sans-serif;
   color: rgb(248, 192, 145);
   margin-bottom: 2rem;
+}
+
+// **** MUSICS
+
+.musics {
+  font-size: 10px;
+  text-decoration:none;
+
+  a {
+    color: #cccccc;
+    text-decoration: none;
+  }
+}
+
+.background-music {
+  background-image: url("/icon/studio.jpg");
+  background-size: cover;
+  //height: 100%;
+  //overflow: hidden;
+
 }

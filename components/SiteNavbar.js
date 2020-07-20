@@ -76,6 +76,15 @@ const SiteNavbar = source => {
                             }
                         />
                     </div>
+                    <div onClick={toggleNavbar}>
+                        <Nav.Link 
+                            as={() => 
+                                <Link href='#musics'>
+                                    <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('musics', language)}</a>
+                                </Link>
+                            }
+                        />
+                    </div>
                 </Nav>
 
                 { language === 'Fr' && 

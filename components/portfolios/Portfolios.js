@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Fade } from 'react-awesome-reveal';
 import { getTranslation } from 'context/Translate';
+import SectionHeader from 'components/SectionHeader';
 
 
 export const Portfolios = ({portfolios, sectionDescription, language, mode}) => {
@@ -29,11 +30,15 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
     const renderLogos = logos => {
 
-        return logos.map(logo => <Card.Img
-            src={
-                urlFor(logo.logoImage).url()
-            }
-        />)
+        return logos.map(logo => 
+            <Card.Img
+                key={logo.name}
+                className="ml-1"
+                src={
+                    urlFor(logo.logoImage).url()
+                }
+            />
+        )
     }
 
     const renderPortfolios = () => {
@@ -57,7 +62,7 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
                                     {renderLogos(portfolio.logos)}
 
                                     <div>
-                                        <Card.Title className="font-weight-bold mb-1">{portfolio.logo.name}</Card.Title>
+                                        <Card.Title className="font-weight-bold mb-1">{portfolio.name}</Card.Title>
                                         <Card.Text className="card-text-title">{portfolio.title[language.toLowerCase()]}</Card.Text>
                                     </div>
                                     
@@ -98,18 +103,14 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
             {/* {JSON.stringify(portfolios)} */}
 
-            <div style={{position: "relative", top: "-70px", visibility: "hidden"}} id="portfolios">
-            </div>
-            <div className="portfolios-title">
-                {getTranslation('portfolios', language)} {'-----'} 
-                <br/>
-                <div className="portfolios-title-number">
-                    {portfolios.length} {' '} {getTranslation('projects', language)}
-                </div>
-            </div>
-            <div className="section-description">
-                {portfoliosDescription.description[language.toLowerCase()]} 
-            </div>
+            <SectionHeader 
+                title="portfolios" 
+                subtitle="projects" 
+                numberItem={portfolios.length} 
+                description={portfoliosDescription.description[language.toLowerCase()]} 
+                language={language}
+            />
+            
             <Row>
                 {renderPortfolios()}
             </Row>

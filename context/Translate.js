@@ -10,7 +10,8 @@ const Translate = {
     readMore_EN: 'Read More',
     readMore_FR: 'En savoir plus',
     projects_EN: 'Projects',
-    projects_FR: 'Projets'
-
+    projects_FR: 'Projets',
+    musics_EN: 'Musics',
+    musics_FR: 'Musiques'
 
 }
