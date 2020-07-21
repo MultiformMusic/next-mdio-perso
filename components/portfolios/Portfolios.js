@@ -13,7 +13,6 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
     const [classLowWidth, setClassLowWidth] = useState(false);
     const portfoliosDescription = sectionDescription.filter(item => item.name === 'Portfolios')[0];
 
-    //let directions = ["left", "top", "right"];
     let count = 0;
 
     useEffect(() => {

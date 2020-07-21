@@ -1,12 +1,14 @@
+
+import { useRouter } from 'next/router';
 import { Navbar, Nav } from 'react-bootstrap';
 import Link from 'next/link';
 import { useConfiguration } from 'providers/SiteProvider';
 import { getTranslation } from 'context/Translate';
-import { useState, useEffect } from 'react';
 
 const SiteNavbar = source => {
 
     const {language, changeLanguage} = useConfiguration();
+    const router = useRouter();
 
     const toggleNavbar = () => {
 
@@ -67,24 +69,29 @@ const SiteNavbar = source => {
                             }
                         />
                     </div>
-                    <div onClick={toggleNavbar}>
-                        <Nav.Link 
-                            as={() => 
-                                <Link href='#portfolios'>
-                                    <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('portfolios', language)}</a>
-                                </Link>
-                            }
-                        />
-                    </div>
-                    <div onClick={toggleNavbar}>
-                        <Nav.Link 
-                            as={() => 
-                                <Link href='#musics'>
-                                    <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('musics', language)}</a>
-                                </Link>
-                            }
-                        />
-                    </div>
+                    {
+                        !router.pathname.includes("[slug]") &&
+                        <>
+                            <div onClick={toggleNavbar}>
+                                <Nav.Link 
+                                    as={() => 
+                                        <Link href='#portfolios'>
+                                            <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('portfolios', language)}</a>
+                                        </Link>
+                                    }
+                                />
+                            </div>
+                            <div onClick={toggleNavbar}>
+                                <Nav.Link 
+                                    as={() => 
+                                        <Link href='#musics'>
+                                            <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('musics', language)}</a>
+                                        </Link>
+                                    }
+                                />
+                            </div>
+                        </>
+                    }
                 </Nav>
 
                 { language === 'Fr' && 

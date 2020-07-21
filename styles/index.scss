@@ -254,6 +254,7 @@ html, body {
 .background-music {
   background-image: url("/icon/studio.jpg");
   background-size: cover;
+  background-attachment: fixed;
   //height: 100%;
   //overflow: hidden;
 
