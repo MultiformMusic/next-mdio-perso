@@ -123,6 +123,7 @@ html, body {
 .card.md-card {
 
   margin-bottom: 80px;
+  background-color: transparent;
 
   .card-body-wrapper {
     height: 465px;
@@ -258,4 +259,8 @@ html, body {
   //height: 100%;
   //overflow: hidden;
 
+}
+
+.progress {
+  height: 0px !important;
 }

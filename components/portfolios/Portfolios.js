@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { urlFor } from 'lib/api';
-import Link from 'next/link';
 import { Card, Col, Row } from 'react-bootstrap';
-import { Fade } from 'react-awesome-reveal';
-import { getTranslation } from 'context/Translate';
 import SectionHeader from 'components/SectionHeader';
+import PortfolioItem from 'components/portfolios/PortfolioItem';
 
 
 export const Portfolios = ({portfolios, sectionDescription, language, mode}) => {
@@ -26,20 +24,6 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
     }, [])
 
-
-    const renderLogos = logos => {
-
-        return logos.map(logo => 
-            <Card.Img
-                key={logo.name}
-                className="ml-1"
-                src={
-                    urlFor(logo.logoImage).url()
-                }
-            />
-        )
-    }
-
     const renderPortfolios = () => {
 
         return portfolios.map((portfolio, index) => {
@@ -52,44 +36,19 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
             count++;
 
             return (
-                <Col key={portfolio.slug} md="6" lg="4"> 
-                    <Fade direction={direction} triggerOnce>
-                        <Card className={`md-card ${mode}`}>
-                            <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`}>
-                                <Card.Header className="d-flex flex-row">
 
-                                    {renderLogos(portfolio.logos)}
-
-                                    <div>
-                                        <Card.Title className="font-weight-bold mb-1">{portfolio.name}</Card.Title>
-                                        <Card.Text className="card-text-title">{portfolio.title[language.toLowerCase()]}</Card.Text>
-                                    </div>
-                                    
-                                </Card.Header>
-                                <div style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}> 
-                                <div className="view overlay text-center">
-                                    <Card.Img
-                                            src={
-                                                urlFor(portfolio.coverImage)
-                                                .url()
-                                            }
-                                            alt="Card image cap"
-                                            height="250"
-                                    />
-                                </div>
-                                </div>
-                                <Card.Body>
-                                    <Card.Text className="card-text-subtitle">{portfolio.subTitle[language.toLowerCase()]}</Card.Text>
-                                </Card.Body>
-                            </div>
-                            <Link href="#" >
-                                <a className="card-button" style={{textDecoration: 'none', color: 'white'}}>
-                                    {getTranslation('readMore', language)}
-                                </a>
-                            </Link>
-                        </Card> 
-                    </Fade>
-                </Col> 
+                    <PortfolioItem 
+                        direction={direction} 
+                        language={language} 
+                        mode={mode}
+                        classLowWidth={classLowWidth}
+                        slug={portfolio.slug}
+                        logos={portfolio.logos}
+                        name={portfolio.name}
+                        title={portfolio.title}
+                        subTitle={portfolio.subTitle}
+                        coverImage={portfolio.coverImage}
+                    />
                 
                 )
             }                   

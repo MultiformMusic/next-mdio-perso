@@ -17,6 +17,8 @@ const Musics = ({musics, sectionDescription, language}) => {
 
         if (window.innerWidth < 400) {
             setShowList(false);
+            const el = document.getElementsByClassName("sc-background-orange");
+            console.log("EL = ", el)
         } else {
             setShowList(true);
         }
