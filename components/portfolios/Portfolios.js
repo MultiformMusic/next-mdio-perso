@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { urlFor } from 'lib/api';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import SectionHeader from 'components/SectionHeader';
 import PortfolioItem from 'components/portfolios/PortfolioItem';
 
@@ -38,6 +37,7 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
             return (
 
                     <PortfolioItem 
+                        key={portfolio.slug}
                         direction={direction} 
                         language={language} 
                         mode={mode}
@@ -48,6 +48,10 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
                         title={portfolio.title}
                         subTitle={portfolio.subTitle}
                         coverImage={portfolio.coverImage}
+                        link={{
+                            href: '/portfolios/[slug]',
+                            as: `/portfolios/${portfolio.slug}`
+                        }}
                     />
                 
                 )

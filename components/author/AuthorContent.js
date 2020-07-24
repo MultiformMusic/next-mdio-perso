@@ -1,13 +1,8 @@
 import BlockContent from '@sanity/block-content-to-react';
 import { urlFor } from 'lib/api';
 import { JackInTheBox, Zoom } from 'react-awesome-reveal';
-import { useConfiguration } from 'providers/SiteProvider';
-
-
 
 const buildSerializers = () => {
-
-    const {projectId} = useConfiguration();
 
     return ({
         types: {

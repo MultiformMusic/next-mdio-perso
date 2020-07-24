@@ -3,7 +3,6 @@ import { libGetAuthorPresentation, libGetPorfolios, libGetSectionDescription, li
 import AuthorPresentation from 'components/author/AuthorPresentation';
 import { useConfiguration } from 'providers/SiteProvider';
 import { Portfolios } from "components/portfolios/Portfolios";
-import { getTranslation } from "context/Translate";
 import Musics from "components/musics/Musics";
 
 export default ({authorData, portfolios, sectionDescription, musics}) => {

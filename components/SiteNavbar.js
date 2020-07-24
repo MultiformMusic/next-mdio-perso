@@ -71,38 +71,39 @@ const SiteNavbar = source => {
                     </div>
                     {
                         !router.pathname.includes("[slug]") &&
-                        <>
-                            <div onClick={toggleNavbar}>
-                                <Nav.Link 
-                                    as={() => 
-                                        <Link href='#portfolios'>
-                                            <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('portfolios', language)}</a>
-                                        </Link>
-                                    }
-                                />
-                            </div>
-                            <div onClick={toggleNavbar}>
-                                <Nav.Link 
-                                    as={() => 
-                                        <Link href='#musics'>
-                                            <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('musics', language)}</a>
-                                        </Link>
-                                    }
-                                />
-                            </div>
-                        </>
+
+                            <>
+                                <div onClick={toggleNavbar} className="navbar-item-spacing">
+                                    <Nav.Link 
+                                        as={() => 
+                                            <Link href='#portfolios'>
+                                                <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('portfolios', language)}</a>
+                                            </Link>
+                                        }
+                                    />
+                                </div>
+                                <div onClick={toggleNavbar} className="navbar-item-spacing">
+                                    <Nav.Link 
+                                        as={() => 
+                                            <Link href='#musics'>
+                                                <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('musics', language)}</a>
+                                            </Link>
+                                        }
+                                    />
+                                </div>
+                            </>
                     }
                 </Nav>
 
                 { language === 'Fr' && 
 
-                    <div onClick={() => changeLanguage('En')}>
+                    <div onClick={() => {changeLanguage('En'); toggleNavbar()}} className="navbar-item-spacing">
                         <img src="/icon/IconEnglishLanguage.png" width="32" className="ml-3 md-navbar-icon" />
                     </div>
                 }
                 { language === 'En' && 
 
-                    <div onClick={() => changeLanguage('Fr')}>
+                    <div onClick={() => {changeLanguage('Fr'); toggleNavbar()}} className="navbar-item-spacing">
                         <img src="/icon/IconFrenchLanguage.png" width="32" className="ml-3 md-navbar-icon" />
                     </div>
                 }

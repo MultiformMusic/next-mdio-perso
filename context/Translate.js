@@ -3,8 +3,8 @@
 export const  getTranslation = (text, language) => Translate[text + "_" + language.toUpperCase()] || '';
 
 const Translate = {
-    home_EN: 'HOME',
-    home_FR: 'ACCUEIL',
+    home_EN: 'Home',
+    home_FR: 'Accueil',
     portfolios_EN: 'Portfolios',
     portfolios_FR: 'Portfolios',
     readMore_EN: 'Read More',

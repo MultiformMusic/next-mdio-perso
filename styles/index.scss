@@ -7,8 +7,10 @@ html, body {
     background-color: #4D4C58 !important;
 }
 
+// ***** NAVBAR
+
 .navbar-brand {
-  padding-left: 25px;
+  padding-left: 15px;
 }
 
 .md-navbar {
@@ -36,7 +38,6 @@ html, body {
       color: rgb(230, 207, 207);
       letter-spacing: 0.8px;
       font-size: 18px;
-      text-transform: uppercase;
       text-decoration: none;
       transition: all ease 0.3s;
 
@@ -50,12 +51,9 @@ html, body {
     }
   }
 
-  // HEADER STARTS
   .md-navbar.md-nav-base {
     width: 100%;
     padding: 20px 0px;
-  
-
 
     .md-dropdown-menu {
   
@@ -261,6 +259,114 @@ html, body {
 
 }
 
-.progress {
-  height: 0px !important;
+// ***** PORTFOLIO DETAIL
+
+.detail-portfolio-header {
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
+
+.detail-title {
+  font-size: 2rem;
+  font-family: 'Sansita', sans-serif;
+  color: rgb(231, 156, 156);
+}
+
+
+.portfolio-detail-content {
+  
+  &-img {
+
+    &-left {
+      float: left;
+      margin-right: 20px;
+   }
+
+    &-right {
+        float: right;
+        margin-left: 20px;
+    }
+  }
+
+  a {
+
+    color: rgb(97, 208, 236);
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.portfolio-content-image {
+  width: 320px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.3s;
+
+  &:hover {
+    transform: scale(2);
+  }
+}
+
+// **** MEDIA QUERYS
+
+@media screen and (max-width: 991px) {
+
+  
+    .navbar-item-spacing {
+      margin-top: 4px;
+    }
+
+}
+
+@media screen and (max-width: 668px) {
+
+
+  .detail-portfolio-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .portfolio-content-image {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .detail-title {
+    font-size: 1.7rem;
+    justify-content: center;
+  }
+
+  .portfolio-detail-content {
+    font-size: 1rem;
+  }
+
+  .portfolio-content-image {
+    width: 190px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+
+  .detail-title {
+    font-size: 1.3rem;
+  }
+
+  .portfolio-detail-content {
+    font-size: 0.8rem;
+  }
+
+  .portfolio-content-image {
+    width: 150px;
+  }
+}
+
