@@ -21,7 +21,7 @@ const buildSerializers = () => {
                 
                 return (
                     
-                        <div className={`portfolio-detail-content-img-${position}`}>
+                        <div className={`portfolio-detail-content-img-${position} mb-2 text-center`}>
                             <img className="portfolio-content-image" src={url} />
                             <div className="image-alt">
                                 {alt}
