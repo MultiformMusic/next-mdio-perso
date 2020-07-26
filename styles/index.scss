@@ -7,6 +7,20 @@ html, body {
     background-color: #4D4C58 !important;
 }
 
+strong {
+  color: rgb(253, 189, 169);
+  font-size: 1.07rem !important;
+}
+
+H5 {
+  color: rgb(253, 189, 169);
+  font-size: 1.3rem !important;
+}
+
+u {
+  color: red;
+}
+
 // ***** NAVBAR
 
 .navbar-brand {
@@ -340,6 +354,16 @@ html, body {
 }
 
 @media screen and (max-width: 450px) {
+
+  strong {
+    color: rgb(253, 189, 169);
+    font-size: 1rem !important;
+  }
+  
+  H5 {
+    color: rgb(253, 189, 169);
+    font-size: 1.1rem !important;
+  }
 
   .detail-title {
     font-size: 1.7rem;
