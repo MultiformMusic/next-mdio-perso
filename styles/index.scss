@@ -111,7 +111,7 @@ u {
   
 .author-content-text {
     font-family: 'Nunito', sans-serif;
-    background-color: rgba(77, 54, 55, 0.5);
+    background-color: rgba(49, 34, 34, 0.5);
     padding: 15px 30px 2px 30px !important;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -265,9 +265,10 @@ u {
 }
 
 .background-music {
-  background-image: url("/icon/studio.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: rgb(63, 36, 17);
+  // background-image: url("/icon/studio.jpg");
+  // background-size: cover;
+  // background-attachment: fixed;
   //height: 100%;
   //overflow: hidden;
 
@@ -315,12 +316,22 @@ u {
 }
 
 .portfolio-content-image {
-  width: 320px;
   height: auto;
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
   transition: all ease 0.3s;
+  
+  &-normal {
+    
+    width: 320px;
+  }
+
+  &-large {
+    
+    width: 450px;
+    height: auto;
+  }
 
   // &:hover {
   //   transform: scale(1.02);
@@ -365,6 +376,12 @@ u {
     font-size: 1.1rem !important;
   }
 
+  .background-music {
+    height: 370vh;
+    background-color: rgb(41, 23, 12);
+  
+  }
+
   .detail-title {
     font-size: 1.7rem;
     justify-content: center;
@@ -381,6 +398,11 @@ u {
 
 @media screen and (max-width: 350px) {
 
+  .background-music {
+    height: 450vh;
+  
+  }
+  
   .detail-title {
     font-size: 1.3rem;
   }

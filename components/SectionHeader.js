@@ -4,9 +4,10 @@ const SectionHeader = ({title, subtitle, numberItem, description, language}) => 
 
     return (
         <>
-            <div style={{position: "relative", top: "-70px", visibility: "hidden"}} id={title} >
+            <div style={{position: "relative", top: "0px", visibility: "hidden"}} id={title} >
             </div>
             <div className="section-title">
+                <br/>
                 {getTranslation(title, language)} {'-----'} 
                 <br/>
                 <div className="section-title-number">

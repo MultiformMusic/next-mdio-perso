@@ -6,8 +6,7 @@ const buildSerializers = () => {
 
     return ({
         types: {
-            image: ({node: {asset, alt, position}}) => {
-    
+            image: ({node: {asset, alt, position, size}}) => {
                 let url = urlFor(asset).url();
                 if (url) {
 
@@ -22,7 +21,7 @@ const buildSerializers = () => {
                 return (
                     
                         <div className={`portfolio-detail-content-img-${position} mb-2 text-center`}>
-                            <img className="portfolio-content-image" src={url} />
+                            <img className={`portfolio-content-image portfolio-content-image-${size}`} src={url} />
                             <div className="image-alt">
                                 {alt}
                             </div>
