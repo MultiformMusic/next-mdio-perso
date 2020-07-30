@@ -16,7 +16,7 @@ export default ({authorData, portfolios, sectionDescription, musics}) => {
 
       <AuthorPresentation authorData={authorData} language={language} />
 
-      <Portfolios portfolios={portfolios} sectionDescription={sectionDescription} language={language} />
+      <Portfolios portfolios={portfolios} sectionDescription={sectionDescription} language={language}/>
 
     </PageLayout>
 

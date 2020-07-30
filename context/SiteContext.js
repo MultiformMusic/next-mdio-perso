@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SiteConfiguration = {
     language: 'Fr',
-    projectId: ''
+    projectId: '',
 }
 
 export const SiteContext = React.createContext({});

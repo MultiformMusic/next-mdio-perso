@@ -4,7 +4,7 @@ const SectionHeader = ({title, subtitle, numberItem, description, language}) => 
 
     return (
         <>
-            <div style={{position: "relative", top: "0px", visibility: "hidden"}} id={title} >
+            <div style={{position: "relative", top: "-25px", visibility: "hidden"}} id={title} >
             </div>
             <div className="section-title">
                 <br/>
