@@ -17,6 +17,7 @@
     "react-awesome-reveal": "^2.4.2",
     "react-bootstrap": "^1.0.1",
     "react-dom": "16.13.1",
+    "react-hook-form": "^6.2.0",
     "sass": "^1.26.9",
     "swr": "^0.2.3"
   }

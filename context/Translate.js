@@ -24,5 +24,8 @@ const Translate = {
     contactEmail_FR: 'Email',
     contactEmail_EN: 'Email',
     contactSend_FR: 'Envoyer',
-    contactSendEN: 'Send'
+    contactSend_EN: 'Send',
+    contactRequire_FR: 'Ce champ est obligatoire',
+    contactRequire_EN: 'This field is required'
+
 }
