@@ -18,19 +18,21 @@ const AuthorPresentation = ({authorData, language}) => {
     }, []);
 
     return (
-        <Row className="justify-content-center">
-            <Col md="9" lg="10">
-            
-            <Media className="mb-4 admin-intro">
-                <Media.Body>
-                    <div  className="author-presentation">
-                        <AuthorContent content={content} mobileScreen={mobileScreen}/>
-                    </div>
-                </Media.Body>
-            </Media>
-            
-            </Col>
-        </Row>
+        <section>
+            <Row className="justify-content-center">
+                <Col md="9" lg="10">
+                
+                <Media className="mb-4 admin-intro">
+                    <Media.Body>
+                        <div  className="author-presentation">
+                            <AuthorContent content={content} mobileScreen={mobileScreen}/>
+                        </div>
+                    </Media.Body>
+                </Media>
+                
+                </Col>
+            </Row>
+        </section>
     )
 }
 

@@ -61,7 +61,7 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
     }
 
     return (
-        <div>
+        <section>
 
             {/* {JSON.stringify(portfolios)} */}
 
@@ -76,6 +76,6 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
             <Row>
                 {renderPortfolios()}
             </Row>
-        </div>
+        </section>
     )
 }

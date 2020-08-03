@@ -4,6 +4,7 @@ import AuthorPresentation from 'components/author/AuthorPresentation';
 import { useConfiguration } from 'providers/SiteProvider';
 import { Portfolios } from "components/portfolios/Portfolios";
 import Musics from "components/musics/Musics";
+import { Contact } from "components/contact/Contact";
 
 export default ({authorData, portfolios, sectionDescription, musics}) => {
 
@@ -12,18 +13,20 @@ export default ({authorData, portfolios, sectionDescription, musics}) => {
   return (
 
     <>
-    <PageLayout>
+      <PageLayout>
 
-      <AuthorPresentation authorData={authorData} language={language} />
+        <AuthorPresentation authorData={authorData} language={language} />
 
-      <Portfolios portfolios={portfolios} sectionDescription={sectionDescription} language={language}/>
+        <Portfolios portfolios={portfolios} sectionDescription={sectionDescription} language={language}/>
 
-    </PageLayout>
+      </PageLayout>
 
-      <div className="background-music" style={{width: '100vw'}}>
-        <Musics musics={musics} sectionDescription={sectionDescription} language={language} />
-      </div>
-      </>
+
+      <Musics musics={musics} sectionDescription={sectionDescription} language={language} />
+
+      <Contact sectionDescription={sectionDescription} language={language}/>
+
+    </>
   )
 }
 

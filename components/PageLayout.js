@@ -18,7 +18,7 @@ const PageLayout = ({children}) => {
                 <SiteNavbar/>
 
                 <div style={{marginTop: '70px'}}>
-                {children}
+                    {children}
                 </div>
 
             </Container>

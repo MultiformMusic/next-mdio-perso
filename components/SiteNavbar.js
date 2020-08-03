@@ -91,6 +91,15 @@ const SiteNavbar = source => {
                                         }
                                     />
                                 </div>
+                                <div onClick={toggleNavbar} className="navbar-item-spacing">
+                                    <Nav.Link 
+                                        as={() => 
+                                            <Link href='#contact'>
+                                                <a className="md-navbar-link ml-3" style={{textDecoration: 'none'}}>{getTranslation('contactNav', language)}</a>
+                                            </Link>
+                                        }
+                                    />
+                                </div>
                             </>
                     }
                 </Nav>

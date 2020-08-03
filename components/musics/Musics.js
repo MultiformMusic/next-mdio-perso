@@ -29,37 +29,42 @@ const Musics = ({musics, sectionDescription, language}) => {
 
     return (
 
-        <div className="container mt-5" style={{height: "900px"}}>
+        <section>
 
-            {/* {JSON.stringify(musics)} */}
+            <div className="background-music mt-5" style={{width: '100vw'}}> 
+                <div className="container">
 
-            <SectionHeader 
-                title="musics" 
-                subtitle="musics" 
-                numberItem={musics.length} 
-                description={musicDescription.description[language.toLowerCase()]} 
-                language={language}
-            />
+                    {/* {JSON.stringify(musics)} */}
 
-            <Row>
-                {
-                    musics.map(music => {
+                    <SectionHeader 
+                        title="musics" 
+                        subtitle="musics" 
+                        numberItem={musics.length} 
+                        description={musicDescription.description[language.toLowerCase()]} 
+                        language={language}
+                    />
 
-                        return (
-                       
-                            <Col key={music.name} className="music-content mt-4" md="12" lg="6"> 
-                                <Fade direction="top" duration="1500" triggerOnce>
-                                    <div className="musics" dangerouslySetInnerHTML={renderLink(showList ? music.linkList : music.linkBlock)} />
-                                    <div className="musics">{music.name}</div>
-                                </Fade>
-                            </Col>
-                       
-                        
-                        )
-                    })
-                }
-            </Row>
-        </div>
+                    <Row>
+                        {
+                            musics.map(music => {
+
+                                return (
+                            
+                                    <Col key={music.name} className="music-content mt-4" md="12" lg="6"> 
+                                        <Fade direction="top" duration="1500" triggerOnce>
+                                            <div className="musics" dangerouslySetInnerHTML={renderLink(showList ? music.linkList : music.linkBlock)} />
+                                            <div className="musics">{music.name}</div>
+                                        </Fade>
+                                    </Col>
+                            
+                                
+                                )
+                            })
+                        }
+                    </Row>
+                </div>
+            </div>
+        </section>
     )
 }
 
