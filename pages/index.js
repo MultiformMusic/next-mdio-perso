@@ -32,7 +32,6 @@ export default ({authorData, portfolios, sectionDescription, musics}) => {
 
 export async function getStaticProps({preview = false}) {
 
-  console.log('index getStaticProps')
   //const blogs = await getPaginatedBlogs({offset: 0, date: 'desc'});
   const arrayAuthorData = await libGetAuthorPresentation();
   const authorData = arrayAuthorData[0];

@@ -4,39 +4,54 @@ import { useForm } from "react-hook-form";
 import SectionHeader from '../SectionHeader';
 import { getTranslation } from 'context/Translate';
 import { Rotate } from 'react-awesome-reveal';
+import { messagesCollection } from 'utils/fbase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 
 export const Contact = ({sectionDescription, language}) => {
 
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, watch, errors, formState, setValue } = useForm();
+    const { isValid } = formState;
 
     const [disabledButton, setDisabledButton] = useState(false);
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [message, setMessage] = useState("");
 
     const contactDescription = sectionDescription.filter(item => item.name === 'Contact')[0];
 
-    // const onSubmit = event => {
-
-    //     event.preventDefault();
-
-    //     const datas = {
-    //         name,
-    //         email,
-    //         message
-    //     };
-
-    //     console.log(datas);
-    // }
 
     const watchName = watch("name", "");
     const watchEmail = watch("email", "");
     const watchMessage = watch("message", "");
 
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
 
         console.log(data);
+        console.log("erors", errors);
+
+        try {
+
+            const dt = new Date();
+
+            let date = `${
+                dt.getDate().toString().padStart(2, '0')}/${
+                (dt.getMonth()+1).toString().padStart(2, '0')}/${
+                dt.getFullYear().toString().padStart(4, '0')} ${
+                dt.getHours().toString().padStart(2, '0')}:${
+                dt.getMinutes().toString().padStart(2, '0')}:${
+                dt.getSeconds().toString().padStart(2, '0')}`;
+
+            date = date.split("/").join("-");
+            await firebase.auth().signInWithEmailAndPassword(process.env.FIRESTORE_LOGIN, process.env.FIRESTORE_PASSWORD);
+            await messagesCollection.doc(data.email).collection(date).add(data);
+
+            setValue('name', getTranslation('contactName', language), { shouldValidate: false });
+            setValue('email', getTranslation('contactEmail', language), { shouldValidate: false });
+            setValue('message', getTranslation('contactMessage', language), { shouldValidate: false });
+            
+        } catch (error) {
+            console.log("error : ", error);
+        }
     }
 
     return (
@@ -54,14 +69,12 @@ export const Contact = ({sectionDescription, language}) => {
             
             <form onSubmit={handleSubmit(onSubmit)} className="contact-form pb-5 mb-5">
 
-                <div className="py-4" mt-2>
+                <div className="py-4 mt-2">
                     {errors.name && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
                     <input type="text" 
                             className="my-2 p-2 input"
                             placeholder={getTranslation('contactName', language)}
                             name="name" 
-                            // value={name}
-                            // onChange={event => setName(event.target.value)}
                             maxLength="50" 
                             ref={register({ required: true })} />
                     <label className="label">{getTranslation('contactName', language)}</label>
@@ -72,8 +85,6 @@ export const Contact = ({sectionDescription, language}) => {
                             className="my-2 p-2 input"
                             placeholder={getTranslation('contactEmail', language)}
                             name="email" 
-                            // value={email}
-                            // onChange={event => setEmail(event.target.value)}
                             maxLength="50" 
                             ref={register({ required: true })}/>
                     <label className="label">{getTranslation('contactEmail', language)}</label>
@@ -85,10 +96,9 @@ export const Contact = ({sectionDescription, language}) => {
                             id="message" rows="4" 
                             placeholder="message"
                             name="message"
-                            // value={message}
-                            // onChange={event => setMessage(event.target.value)}
                             maxLength="250"
-                            ref={register({ required: true })}>
+                            minLength="10"
+                            ref={register({ required: true, min: 10, max: 250 })}>
                     </textarea>       
                 </div>  
                 <div className="button-container text-center">
