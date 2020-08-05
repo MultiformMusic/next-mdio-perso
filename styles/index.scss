@@ -388,6 +388,27 @@ u {
   width: 40vh;
 }
 
+.sending-message {
+  
+  color: rgb(248, 207, 130);
+
+  &-success {
+    color: rgb(60, 212, 60);
+  }
+
+  &-failure {
+    color: rgb(233, 109, 109);
+  }
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
 // **** MEDIA QUERYS
 
 @media screen and (max-width: 991px) {

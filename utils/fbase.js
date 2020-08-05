@@ -13,7 +13,14 @@ const config = {
     measurementId: "G-NBB8KG3BSF"
 }
 
+let fBaseApp;
 
-const fBaseApp = firebase.initializeApp(config);
-export const DB = fBaseApp.firestore();
-export const messagesCollection = DB.collection('messages');
+try {
+
+    fBaseApp = firebase.initializeApp(config);
+    
+} catch (error) {
+    
+}
+export const DB = fBaseApp === undefined ? undefined : fBaseApp.firestore();
+export const messagesCollection =  DB === undefined ? undefined : DB.collection('messages');

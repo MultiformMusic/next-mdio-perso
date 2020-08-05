@@ -1,28 +1,34 @@
-import {useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import SectionHeader from '../SectionHeader';
 import { getTranslation } from 'context/Translate';
 import { Rotate } from 'react-awesome-reveal';
 import { messagesCollection } from 'utils/fbase';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 
+const schema = yup.object().shape({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    message: yup.string().required().min(10).max(250)
+  });
 
 export const Contact = ({sectionDescription, language}) => {
 
 
-    const { register, handleSubmit, watch, errors, formState, setValue } = useForm();
+    const [isSending, setIsSending] = useState(false);
+    const [isSendingSuccess, setIsSendingSuccess] = useState(false);
+    const [isSendingFailure, setIsSendingFailure] = useState(false);
+
+    const { register, handleSubmit, errors, formState, setValue } = useForm({
+        mode: "onChange",
+        validationSchema: schema
+    });
     const { isValid } = formState;
 
-    const [disabledButton, setDisabledButton] = useState(false);
-
     const contactDescription = sectionDescription.filter(item => item.name === 'Contact')[0];
-
-
-    const watchName = watch("name", "");
-    const watchEmail = watch("email", "");
-    const watchMessage = watch("message", "");
 
     const onSubmit = async (data) => {
 
@@ -30,6 +36,10 @@ export const Contact = ({sectionDescription, language}) => {
         console.log("erors", errors);
 
         try {
+
+            setIsSendingSuccess(false);
+            setIsSendingFailure(false);
+            setIsSending(true);
 
             const dt = new Date();
 
@@ -41,16 +51,23 @@ export const Contact = ({sectionDescription, language}) => {
                 dt.getMinutes().toString().padStart(2, '0')}:${
                 dt.getSeconds().toString().padStart(2, '0')}`;
 
-            date = date.split("/").join("-");
+            date = date.split("/").join("-"); 
             await firebase.auth().signInWithEmailAndPassword(process.env.FIRESTORE_LOGIN, process.env.FIRESTORE_PASSWORD);
             await messagesCollection.doc(data.email).collection(date).add(data);
 
             setValue('name', getTranslation('contactName', language), { shouldValidate: false });
             setValue('email', getTranslation('contactEmail', language), { shouldValidate: false });
             setValue('message', getTranslation('contactMessage', language), { shouldValidate: false });
+
+
+            setIsSending(false);
+            setIsSendingSuccess(true);
+
             
         } catch (error) {
-            console.log("error : ", error);
+            //console.log("error : ", error);
+            setIsSending(false);
+            setIsSendingFailure(true);
         }
     }
 
@@ -75,8 +92,8 @@ export const Contact = ({sectionDescription, language}) => {
                             className="my-2 p-2 input"
                             placeholder={getTranslation('contactName', language)}
                             name="name" 
-                            maxLength="50" 
-                            ref={register({ required: true })} />
+                            maxLength="50"
+                            ref={register()} />
                     <label className="label">{getTranslation('contactName', language)}</label>
                 </div>
                 <div className="py-4 mt-4">
@@ -86,7 +103,7 @@ export const Contact = ({sectionDescription, language}) => {
                             placeholder={getTranslation('contactEmail', language)}
                             name="email" 
                             maxLength="50" 
-                            ref={register({ required: true })}/>
+                            ref={register()}/>
                     <label className="label">{getTranslation('contactEmail', language)}</label>
                 </div>
                 <div className="py-4 mb-3 mt-4">  
@@ -98,11 +115,14 @@ export const Contact = ({sectionDescription, language}) => {
                             name="message"
                             maxLength="250"
                             minLength="10"
-                            ref={register({ required: true, min: 10, max: 250 })}>
-                    </textarea>       
+                            ref={register()}>
+                    </textarea>
                 </div>  
                 <div className="button-container text-center">
-                    <Button type="submit" variant="primary" disabled={watchName === '' || watchEmail === '' || watchMessage === ''} >
+                    {isSending && <div className="mb-4 sending-message blink_me">{getTranslation('contactSending', language)}</div>}
+                    {!isSending && isSendingSuccess && <div className="mb-4 sending-message-success">{getTranslation('contactSendingSuccess', language)}</div>}
+                    {!isSending && isSendingFailure && <div className="mb-4 sending-message-failure">{getTranslation('contactSendingFailure', language)}</div>}
+                    <Button type="submit" variant="primary" disabled={!isValid || isSending} >
                         {getTranslation('contactSend', language)}
                     </Button>
                 </div>

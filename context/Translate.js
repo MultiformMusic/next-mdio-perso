@@ -26,6 +26,12 @@ const Translate = {
     contactSend_FR: 'Envoyer',
     contactSend_EN: 'Send',
     contactRequire_FR: 'Ce champ est obligatoire',
-    contactRequire_EN: 'This field is required'
+    contactRequire_EN: 'This field is required',
+    contactSending_FR: 'Envoi en cours...',
+    contactSending_EN: 'Sending...',
+    contactSendingSuccess_FR: 'Message envoyé, je vous répondrais dès que possible.',
+    contactSendingSuccess_EN: 'Message sent, I will answer you as soon as possible.',
+    contactSendingFailure_FR: 'Echec de l\'envoi, veuillez réessayer.',
+    contactSendingFailure_EN: 'Failed to send, please try again.',
 
 }
