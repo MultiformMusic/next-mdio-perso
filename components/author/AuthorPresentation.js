@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react';
 import AuthorContent from "./AuthorContent";
 import { Row, Col, Media } from "react-bootstrap";
+import InViewport from 'components/InViewport';
 
 const AuthorPresentation = ({authorData, language}) => {
 
@@ -10,28 +11,30 @@ const AuthorPresentation = ({authorData, language}) => {
 
     const content = language == 'Fr' ? authorData.authorContentFr : authorData.authorContentEn;
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const mobile = window.innerWidth < 450 ? true : false;
-        setMobileScreen(mobile);
+    //     const mobile = window.innerWidth < 450 ? true : false;
+    //     setMobileScreen(mobile);
 
-    }, []);
+    // }, []);
 
     return (
         <section>
-            <Row className="justify-content-center">
-                <Col md="9" lg="10">
-                
-                <Media className="mb-4 admin-intro">
-                    <Media.Body>
-                        <div  className="author-presentation">
-                            <AuthorContent content={content} mobileScreen={mobileScreen}/>
-                        </div>
-                    </Media.Body>
-                </Media>
-                
-                </Col>
-            </Row>
+            <InViewport>
+                <Row className="justify-content-center">
+                    <Col md="9" lg="10">
+                    
+                    <Media className="mb-4 admin-intro">
+                        <Media.Body>
+                            <div  className="author-presentation">
+                                <AuthorContent content={content} mobileScreen={mobileScreen}/>
+                            </div>
+                        </Media.Body>
+                    </Media>
+                    
+                    </Col>
+                </Row>
+            </InViewport>
         </section>
     )
 }

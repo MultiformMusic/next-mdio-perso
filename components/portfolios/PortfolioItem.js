@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link';
 import { getTranslation } from 'context/Translate';
 import { urlFor } from 'lib/api';
+import InViewport from '../InViewport';
 
 const renderLogos = logos => {
 
@@ -18,11 +20,36 @@ const renderLogos = logos => {
 }
 
 const PortfolioItem = ({language, direction, mode, classLowWidth, link, logos, name, title, subTitle, coverImage}) => {
+    
+    // const myRef = React.createRef();
+    // let observer = undefined; 
+
+    // useEffect(() => {
+
+    //     observer = new IntersectionObserver(
+    //         ([entry]) => {
+    //             console.log("In entry.intersectionRatio = ", entry.intersectionRatio)
+    //             if (entry.intersectionRatio > 0) {
+    //                 console.log("In Viewport = ")
+    //                 myRef.current.style.opacity = "100%";
+    //             }
+    //         }
+    //     );
+
+    //     if (myRef.current) {
+    //         observer.observe(myRef.current);
+    //     }
+
+    // }, []);
+    
+    
     return (
+    
     <Col key={name} md="6" lg="4"> 
-        <Fade direction={direction} triggerOnce>
+        <Fade direction={direction} triggerOnce >
             <Card className={`md-card ${mode}`}>
-                <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`}>
+                <InViewport>
+                <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`} >
                     <Card.Header className="d-flex flex-row">
 
                         {renderLogos(logos, link)}
@@ -51,6 +78,7 @@ const PortfolioItem = ({language, direction, mode, classLowWidth, link, logos, n
                         <Card.Text className="card-text-subtitle">{subTitle[language.toLowerCase()]}</Card.Text>
                     </Card.Body>
                 </div>
+                </InViewport>
 
                 {
 

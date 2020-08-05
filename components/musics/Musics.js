@@ -2,6 +2,7 @@ import SectionHeader from "components/SectionHeader";
 import { Row, Col } from 'react-bootstrap';
 import { Fade } from 'react-awesome-reveal';
 import { useState, useEffect } from 'react';
+import InViewport from "components/InViewport";
 
 const renderLink = link => {
 
@@ -44,6 +45,7 @@ const Musics = ({musics, sectionDescription, language}) => {
                         language={language}
                     />
 
+                    <InViewport>
                     <Row>
                         {
                             musics.map(music => {
@@ -62,6 +64,7 @@ const Musics = ({musics, sectionDescription, language}) => {
                             })
                         }
                     </Row>
+                    </InViewport>
                 </div>
             </div>
         </section>

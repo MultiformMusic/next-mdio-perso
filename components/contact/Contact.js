@@ -8,6 +8,7 @@ import SectionHeader from '../SectionHeader';
 import { getTranslation } from 'context/Translate';
 import { Rotate } from 'react-awesome-reveal';
 import { messagesCollection } from 'utils/fbase';
+import InViewport from 'components/InViewport';
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -74,61 +75,63 @@ export const Contact = ({sectionDescription, language}) => {
     return (
 
     <section className="contact pb-2 mt-4" id="contact">
+        <InViewport>
         <div className="container">
-        <Rotate direction="bottom-left" fraction="0.1" triggerOnce>
-            <SectionHeader 
-                title="contact" 
-                subtitle="" 
-                description={contactDescription.description[language.toLowerCase()]} 
-                language={language}
-            />
-            <h6 className="text-info">{getTranslation('contactMandatory', language)}</h6>
-            
-            <form onSubmit={handleSubmit(onSubmit)} className="contact-form pb-5 mb-5">
+            <Rotate direction="bottom-left" fraction="0.1" triggerOnce>
+                <SectionHeader 
+                    title="contact" 
+                    subtitle="" 
+                    description={contactDescription.description[language.toLowerCase()]} 
+                    language={language}
+                />
+                <h6 className="text-info">{getTranslation('contactMandatory', language)}</h6>
+                
+                <form onSubmit={handleSubmit(onSubmit)} className="contact-form pb-5 mb-5">
 
-                <div className="py-4 mt-2">
-                    {errors.name && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
-                    <input type="text" 
-                            className="my-2 p-2 input"
-                            placeholder={getTranslation('contactName', language)}
-                            name="name" 
-                            maxLength="50"
-                            ref={register()} />
-                    <label className="label">{getTranslation('contactName', language)}</label>
-                </div>
-                <div className="py-4 mt-4">
-                    {errors.email && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
-                    <input type="email" 
-                            className="my-2 p-2 input"
-                            placeholder={getTranslation('contactEmail', language)}
-                            name="email" 
-                            maxLength="50" 
-                            ref={register()}/>
-                    <label className="label">{getTranslation('contactEmail', language)}</label>
-                </div>
-                <div className="py-4 mb-3 mt-4">  
-                    {errors.message && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
-                    <textarea 
-                            className="message"
-                            id="message" rows="4" 
-                            placeholder="message"
-                            name="message"
-                            maxLength="250"
-                            minLength="10"
-                            ref={register()}>
-                    </textarea>
-                </div>  
-                <div className="button-container text-center">
-                    {isSending && <div className="mb-4 sending-message blink_me">{getTranslation('contactSending', language)}</div>}
-                    {!isSending && isSendingSuccess && <div className="mb-4 sending-message-success">{getTranslation('contactSendingSuccess', language)}</div>}
-                    {!isSending && isSendingFailure && <div className="mb-4 sending-message-failure">{getTranslation('contactSendingFailure', language)}</div>}
-                    <Button type="submit" variant="primary" disabled={!isValid || isSending} >
-                        {getTranslation('contactSend', language)}
-                    </Button>
-                </div>
-            </form>
+                    <div className="py-4 mt-2">
+                        {errors.name && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
+                        <input type="text" 
+                                className="my-2 p-2 input"
+                                placeholder={getTranslation('contactName', language)}
+                                name="name" 
+                                maxLength="50"
+                                ref={register()} />
+                        <label className="label">{getTranslation('contactName', language)}</label>
+                    </div>
+                    <div className="py-4 mt-4">
+                        {errors.email && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
+                        <input type="email" 
+                                className="my-2 p-2 input"
+                                placeholder={getTranslation('contactEmail', language)}
+                                name="email" 
+                                maxLength="50" 
+                                ref={register()}/>
+                        <label className="label">{getTranslation('contactEmail', language)}</label>
+                    </div>
+                    <div className="py-4 mb-3 mt-4">  
+                        {errors.message && <div className="ml-4 text-warning">{getTranslation('contactRequire', language)}</div>}
+                        <textarea 
+                                className="message"
+                                id="message" rows="4" 
+                                placeholder="message"
+                                name="message"
+                                maxLength="250"
+                                minLength="10"
+                                ref={register()}>
+                        </textarea>
+                    </div>  
+                    <div className="button-container text-center">
+                        {isSending && <div className="mb-4 sending-message blink_me">{getTranslation('contactSending', language)}</div>}
+                        {!isSending && isSendingSuccess && <div className="mb-4 sending-message-success">{getTranslation('contactSendingSuccess', language)}</div>}
+                        {!isSending && isSendingFailure && <div className="mb-4 sending-message-failure">{getTranslation('contactSendingFailure', language)}</div>}
+                        <Button type="submit" variant="primary" disabled={!isValid || isSending} >
+                            {getTranslation('contactSend', language)}
+                        </Button>
+                    </div>
+                </form>
             </Rotate>
         </div>
+        </InViewport>
 
     </section>
     )
