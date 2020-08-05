@@ -355,7 +355,7 @@ u {
   background: transparent;
   width: 40vh;
   border-color: transparent;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #ccc !important;
   border-radius: 0;
   transition: all .8s;
   color: #ddd;
@@ -366,7 +366,7 @@ u {
   border-color: transparent;
   box-shadow: none;
   color: #fff;
-  border-bottom: 2px solid #f5593D;
+  border-bottom: 2px solid #f5593D !important;
 }
 
 .label {
