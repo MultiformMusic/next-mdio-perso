@@ -1,0 +1,23 @@
+
+// **** AUTHOR
+  
+.author-content-text {
+    font-family: 'Nunito', sans-serif;
+    background-color: rgba(49, 34, 34, 0.5);
+    padding: 15px 30px 2px 30px !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.author-content-img {
+
+    &-left {
+        float: left;
+        margin-right: 20px;
+    }
+
+    &-right {
+        float: right;
+        margin-left: 30px;
+    }
+}

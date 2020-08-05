@@ -1,0 +1,85 @@
+// ***** NAVBAR
+
+.navbar-brand {
+    padding-left: 15px;
+  }
+  
+  .md-navbar {
+  
+      &-brand {
+        color: black;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+  
+        a {
+          color:#b9aaaa;
+          font-weight: 700;
+          text-decoration: none !important;
+          transition: all ease 0.3s;
+  
+          &:hover {
+              color: #cebfbf;
+          }
+        }
+      }
+  
+      &-link {
+        color: rgb(230, 207, 207);
+        letter-spacing: 0.8px;
+        font-size: 18px;
+        text-decoration: none;
+        transition: all ease 0.3s;
+  
+        &.active {
+        color: #dba919;
+        }
+  
+        &:hover, &:focus {
+          color: #dba919;
+        }
+      }
+    }
+  
+    .md-navbar.md-nav-base {
+      width: 100%;
+      padding: 20px 0px;
+  
+      .md-dropdown-menu {
+    
+          .md-dropdown-item {
+            color: #4e4e4e;
+      
+            &.active {
+              color: #dba919;
+            }
+          }
+      
+          .md-dropdown-toggle {
+            color: white;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
+  }
+  
+  .md-navbar.md-nav-base.md-nav-default {
+      padding: 30px;
+      background-color: black !important;
+  }
+  
+  .md-navbar-icon {
+  
+      transition: all ease 0.3s;
+  
+      &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+      }
+  }
+  
+  .navbar-background {
+    background-color: rgba(8, 8, 8, 0.8);
+  }
+  
