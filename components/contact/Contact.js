@@ -65,7 +65,7 @@ export const Contact = ({sectionDescription, language}) => {
 
             
         } catch (error) {
-            console.log("error : ", error);
+            //console.log("error : ", error);
             setIsSending(false);
             setIsSendingFailure(true);
         }
