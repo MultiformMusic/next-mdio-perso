@@ -33,5 +33,7 @@ const Translate = {
     contactSendingSuccess_EN: 'Message sent, I will answer you as soon as possible.',
     contactSendingFailure_FR: 'Echec de l\'envoi, veuillez réessayer.',
     contactSendingFailure_EN: 'Failed to send, please try again.',
+    loadMore_FR: 'Afficher Plus',
+    loadMore_EN: 'Load More'
 
 }

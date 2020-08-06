@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getTranslation } from 'context/Translate';
 import { urlFor } from 'lib/api';
 import InViewport from '../InViewport';
+import { useConfiguration } from 'providers/SiteProvider';
 
 const renderLogos = logos => {
 
@@ -19,29 +20,10 @@ const renderLogos = logos => {
     )
 }
 
-const PortfolioItem = ({language, direction, mode, classLowWidth, link, logos, name, title, subTitle, coverImage}) => {
-    
-    // const myRef = React.createRef();
-    // let observer = undefined; 
+const PortfolioItem = ({ direction, mode, classLowWidth, link, logos, name, title, subTitle, coverImage}) => {
 
-    // useEffect(() => {
 
-    //     observer = new IntersectionObserver(
-    //         ([entry]) => {
-    //             console.log("In entry.intersectionRatio = ", entry.intersectionRatio)
-    //             if (entry.intersectionRatio > 0) {
-    //                 console.log("In Viewport = ")
-    //                 myRef.current.style.opacity = "100%";
-    //             }
-    //         }
-    //     );
-
-    //     if (myRef.current) {
-    //         observer.observe(myRef.current);
-    //     }
-
-    // }, []);
-    
+    const {language} = useConfiguration();
     
     return (
     

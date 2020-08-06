@@ -9,7 +9,6 @@ export default ({children}) => {
 
         observer = new IntersectionObserver(
             ([entry]) => {
-                console.log("entry.intersectionRatio  = ", entry.intersectionRatio )
                 if (entry.intersectionRatio > 0) {
                     if (myRef.current) myRef.current.style.opacity = "100%";
                 }

@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 import SectionHeader from 'components/SectionHeader';
-import PortfolioItem from 'components/portfolios/PortfolioItem';
+import { useGetPortfoliosPages } from '../../actions/pagination';
+import { getTranslation } from 'context/Translate';
 
 
-export const Portfolios = ({portfolios, sectionDescription, language, mode}) => {
+export const Portfolios = ({portfolios, countPortfolios, sectionDescription, language, mode}) => {
  
-    const [directions, setDirections] = useState(["left", "top", "right"]);
+    //const [directions, setDirections] = useState(["left", "top", "left"]);
+    const [directions, setDirections] = useState(["top", "top", "top"]);
     const [classLowWidth, setClassLowWidth] = useState(false);
     const portfoliosDescription = sectionDescription.filter(item => item.name === 'Portfolios')[0];
-
-    let count = 0;
 
     useEffect(() => {
 
@@ -23,42 +23,7 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
 
     }, [])
 
-    const renderPortfolios = () => {
-
-        return portfolios.map((portfolio, index) => {
-
-            if (count > 2) {
-                count = 0;
-            }
-            
-            const direction = directions[count];
-            count++;
-
-            return (
-
-                    <PortfolioItem 
-                        key={portfolio.slug}
-                        direction={direction} 
-                        language={language} 
-                        mode={mode}
-                        classLowWidth={classLowWidth}
-                        slug={portfolio.slug}
-                        logos={portfolio.logos}
-                        name={portfolio.name}
-                        title={portfolio.title}
-                        subTitle={portfolio.subTitle}
-                        coverImage={portfolio.coverImage}
-                        link={{
-                            href: '/portfolios/[slug]',
-                            as: `/portfolios/${portfolio.slug}`
-                        }}
-                    />
-                
-                )
-            }                   
-        
-        )
-    }
+    const {pages, isLoadingMore, isReachingEnd, loadMore} = useGetPortfoliosPages({portfolios, directions, classLowWidth, mode});
 
     return (
         <section>
@@ -68,14 +33,30 @@ export const Portfolios = ({portfolios, sectionDescription, language, mode}) => 
             <SectionHeader 
                 title="portfolios" 
                 subtitle="projects" 
-                numberItem={portfolios.length} 
+                numberItem={countPortfolios} 
                 description={portfoliosDescription.description[language.toLowerCase()]} 
                 language={language}
             />
             
             <Row>
-                {renderPortfolios()}
+                {pages}
             </Row>
+            
+            <div style={{textAlign: 'center', marginTop: '2.5rem'}}>
+                { pages.length * 6 < countPortfolios &&
+                
+                
+                <Button onClick={loadMore} disabled={isReachingEnd || isLoadingMore} variant="outline-secondary" size="lg">
+                    { 
+                    
+                        isLoadingMore ? '...' : getTranslation('loadMore', language)
+                    }
+                    
+                </Button>
+                
+                }
+            </div>
+
         </section>
     )
 }
