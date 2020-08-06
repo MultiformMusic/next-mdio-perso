@@ -43,6 +43,7 @@ export const Portfolios = ({portfolios, countPortfolios, sectionDescription, lan
             </Row>
             
             <div style={{textAlign: 'center', marginTop: '2.5rem'}}>
+                <div className="section-description">{pages.length * 6 < countPortfolios ? (pages.length * 6) + ' / ' +  countPortfolios : countPortfolios + ' / ' + countPortfolios}</div>
                 { pages.length * 6 < countPortfolios &&
                 
                 
