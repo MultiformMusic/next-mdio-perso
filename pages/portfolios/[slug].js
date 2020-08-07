@@ -1,5 +1,5 @@
 import PageLayout from 'components/PageLayout';
-import { libGetPorfolios, libGetPortfolioBySlug } from 'lib/api';
+import { libGetAllPorfolios, libGetPortfolioBySlug } from 'lib/api';
 import { Row, Col } from 'react-bootstrap';
 import { useConfiguration } from 'providers/SiteProvider';
 import { Fade } from 'react-awesome-reveal';
@@ -60,7 +60,7 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
 
-    const portfolios = await libGetPorfolios();
+    const portfolios = await libGetAllPorfolios();
     const paths = portfolios?.map(portfolio => ({params: {slug: portfolio.slug}}));
 
     return {
