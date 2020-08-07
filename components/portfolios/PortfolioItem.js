@@ -20,18 +20,19 @@ const renderLogos = logos => {
     )
 }
 
-const PortfolioItem = ({ direction, mode, classLowWidth, link, logos, name, title, subTitle, coverImage}) => {
+const PortfolioItem = ({ direction, mode, link, logos, name, title, subTitle, coverImage, slug}) => {
 
 
     const {language} = useConfiguration();
     
     return (
     
-    <Col key={name} md="6" lg="4"> 
+        <Col key={name} md="6" lg="4"> 
+        <div style={{position: "relative", top: "-70px", visibility: "hidden"}} id={slug} ></div>
         <Fade direction={direction} triggerOnce >
             <Card className={`md-card ${mode}`}>
                 <InViewport>
-                <div className={` ${classLowWidth} ? card-body-wrapper-low-width : card-body-wrapper`} >
+                <div className="card-body-wrapper-low-width card-body-wrapper">
                     <Card.Header className="d-flex flex-row">
 
                         {renderLogos(logos, link)}

@@ -4,6 +4,8 @@ import { Row, Col } from 'react-bootstrap';
 import { useConfiguration } from 'providers/SiteProvider';
 import { Fade } from 'react-awesome-reveal';
 import { PortfolioDetailContent } from '../../components/portfolios/PortfolioDetailContent';
+import Link from 'next/link';
+import { getTranslation } from 'context/Translate';
 
 export const PortfolioDetail = ({portfolio}) => {
 
@@ -19,8 +21,22 @@ export const PortfolioDetail = ({portfolio}) => {
                 <Col md={{ span: 10, offset: 1 }}>
                     <Fade direction="bottom" duration="1000" triggerOnce>
                         <div className="detail-portfolio-header">
-                            <div className="detail-title">{title[language.toLowerCase()]}</div>
+                            <Col>
+                                <div className="detail-title">
+                                    {title[language.toLowerCase()]}
+                                
+                                </div>
+                                <div>
+                                    <Link href={`/#${portfolio.slug}`}>
+                                        <a className="link-back ml-2" style={{textDecoration: 'none'}}>
+                                        <i class="fas fa-long-arrow-alt-left"></i> {''} {getTranslation('back', language)}
+                                        </a>
+                                    </Link> 
+                                </div>
+                            </Col>
+
                         </div>
+
                         <Fade direction="bottom" duration="1000" triggerOnce>
                             <PortfolioDetailContent content={content} />
                         </Fade>

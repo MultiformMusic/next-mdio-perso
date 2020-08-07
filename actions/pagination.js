@@ -3,7 +3,7 @@ import { useGetPortfolios } from 'actions/index';
 import PortfolioItem from 'components/portfolios/PortfolioItem';
 
 
-export const useGetPortfoliosPages = ({portfolios, directions, classLowWidth, mode}) => {
+export const useGetPortfoliosPages = ({portfolios, directions, mode}) => {
 
     let count = 0;
 
@@ -31,13 +31,13 @@ export const useGetPortfoliosPages = ({portfolios, directions, classLowWidth, mo
                         key={portfolio.slug}
                         direction={direction} 
                         mode={mode}
-                        classLowWidth={classLowWidth}
                         slug={portfolio.slug}
                         logos={portfolio.logos}
                         name={portfolio.name}
                         title={portfolio.title}
                         subTitle={portfolio.subTitle}
                         coverImage={portfolio.coverImage}
+                        slug={portfolio.slug}
                         link={{
                             href: '/portfolios/[slug]',
                             as: `/portfolios/${portfolio.slug}`

@@ -9,12 +9,11 @@ export const Portfolios = ({portfolios, countPortfolios, sectionDescription, lan
  
     //const [directions, setDirections] = useState(["left", "top", "left"]);
     const [directions, setDirections] = useState(["top", "top", "top"]);
-    const [classLowWidth, setClassLowWidth] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [oldPagesLength, setOldPagesLength] = useState(0);
 
     const portfoliosDescription = sectionDescription.filter(item => item.name === 'Portfolios')[0];
-    const {pages, isLoadingMore, isReachingEnd, loadMore} = useGetPortfoliosPages({portfolios, directions, classLowWidth, mode});
+    const {pages, isLoadingMore, isReachingEnd, loadMore} = useGetPortfoliosPages({portfolios, directions, mode});
 
     if (oldPagesLength === 0) setOldPagesLength(pages.length);
 
@@ -25,8 +24,6 @@ export const Portfolios = ({portfolios, countPortfolios, sectionDescription, lan
             setOldPagesLength(pages.length);
             setIsLoading(false);
         }
-
-        //setIsLoading(false);
 
         // if (window.innerWidth < 350) {
         //     setClassLowWidth(true);

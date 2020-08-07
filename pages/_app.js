@@ -7,7 +7,6 @@ import SiteProvider from 'providers/SiteProvider';
 
 export default ({Component, pageProps}) => {
 
-    //console.log("_app pageProps", pageProps);
     return(
 
         <SiteProvider>
