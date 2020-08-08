@@ -21,8 +21,11 @@ export const Portfolios = ({portfolios, countPortfolios, sectionDescription, lan
 
 
         if (oldPagesLength != pages.length) {
-            setOldPagesLength(pages.length);
-            setIsLoading(false);
+            setTimeout(() => {
+                setOldPagesLength(pages.length);
+                setIsLoading(false);
+
+            }, 1000)
         }
 
         // if (window.innerWidth < 350) {
