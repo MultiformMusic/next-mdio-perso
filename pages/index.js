@@ -5,7 +5,7 @@ import { useConfiguration } from 'providers/SiteProvider';
 import { Portfolios } from "components/portfolios/Portfolios";
 import Musics from "components/musics/Musics";
 import { Contact } from "components/contact/Contact";
-import { useGetPortfolios } from 'actions/index';
+import { Footer } from '../components/Footer';
 
 export default ({authorData, portfolios, sectionDescription, musics, countPortfolios}) => {
 
@@ -27,6 +27,8 @@ export default ({authorData, portfolios, sectionDescription, musics, countPortfo
           <Musics musics={musics} sectionDescription={sectionDescription} language={language} />
 
           <Contact sectionDescription={sectionDescription} language={language}/>
+
+          <Footer/>
 
     </>
   )

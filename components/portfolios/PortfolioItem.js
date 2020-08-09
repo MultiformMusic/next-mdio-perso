@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link';
