@@ -1,24 +1,27 @@
-import { Fade, Zoom } from 'react-awesome-reveal';
+import { Zoom } from 'react-awesome-reveal';
+import InViewport from 'components/InViewport';
 
 export const Footer = () => {
     return (
-        <section>
-            <div className="footer">
+        <section style={{backgroundColor: 'black'}}>
                 <Zoom duration="500" triggerOnce>
-                    <div>
-                        <i class="far fa-copyright"></i> 2020 
-                        <a className="link link-github" href='https://github.com/MultiformMusic' target="_blank" title="Github">
-                            <i class="fab fa-github fa-2x ml-5"></i>
-                        </a>
-                        <a className="link link-soundcloud" href='https://soundcloud.com/multiform_bdx' target="_blank" title="Soundcloud">
-                            <i class="fab fa-soundcloud fa-2x ml-3"></i>
-                        </a>
-                        <a className="link link-youtube" href='https://www.youtube.com/user/Enden33/videos' target="_blank" title="Youtube">
-                            <i class="fab fa-youtube fa-2x ml-3"></i>
-                        </a>
+                    <div className="footer">
+                        <InViewport>
+                            <div>
+                                <i className="far fa-copyright"></i> 2020 
+                                <a className="link link-github" href='https://github.com/MultiformMusic' target="_blank" title="Github">
+                                    <i class="fab fa-github fa-2x ml-5"></i>
+                                </a>
+                                <a className="link link-soundcloud" href='https://soundcloud.com/multiform_bdx' target="_blank" title="Soundcloud">
+                                    <i class="fab fa-soundcloud fa-2x ml-3"></i>
+                                </a>
+                                <a className="link link-youtube" href='https://www.youtube.com/user/Enden33/videos' target="_blank" title="Youtube">
+                                    <i class="fab fa-youtube fa-2x ml-3"></i>
+                                </a>
+                            </div>
+                        </InViewport>
                     </div>
                 </Zoom>
-            </div>
         </section>
     )
 }

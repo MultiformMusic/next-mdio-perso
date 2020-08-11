@@ -31,35 +31,35 @@ const PortfolioItem = ({ direction, mode, link, logos, name, title, subTitle, co
         <Fade direction={direction} triggerOnce >
             <Card className={`md-card ${mode}`}>
                 <InViewport>
-                <div className="card-body-wrapper-low-width card-body-wrapper">
-                    <Card.Header className="d-flex flex-row">
+                    <div className="card-body-wrapper-low-width card-body-wrapper">
+                        <Card.Header className="d-flex flex-row">
 
-                        {renderLogos(logos, link)}
+                            {renderLogos(logos, link)}
 
-                        <div>
-                            <Card.Title className="font-weight-bold mb-1">{logos[0].name}</Card.Title>
-                            <Card.Text className="card-text-title">{title[language.toLowerCase()]}</Card.Text>
+                            <div>
+                                <Card.Title className="font-weight-bold mb-1">{logos[0].name}</Card.Title>
+                                <Card.Text className="card-text-title">{title[language.toLowerCase()]}</Card.Text>
+                            </div>
+                            
+                        </Card.Header>
+                        <div style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}> 
+                        <div className="view overlay text-center">
+                            <Link {...link}>   
+                                <Card.Img
+                                        src={
+                                            urlFor(coverImage)
+                                            .url()
+                                        }
+                                        alt="Card image cap"
+                                        height="250"
+                                />
+                            </Link>
                         </div>
-                        
-                    </Card.Header>
-                    <div style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}> 
-                    <div className="view overlay text-center">
-                        <Link {...link}>   
-                            <Card.Img
-                                    src={
-                                        urlFor(coverImage)
-                                        .url()
-                                    }
-                                    alt="Card image cap"
-                                    height="250"
-                            />
-                        </Link>
+                        </div>
+                        <Card.Body>
+                            <Card.Text className="card-text-subtitle">{subTitle[language.toLowerCase()]}</Card.Text>
+                        </Card.Body>
                     </div>
-                    </div>
-                    <Card.Body>
-                        <Card.Text className="card-text-subtitle">{subTitle[language.toLowerCase()]}</Card.Text>
-                    </Card.Body>
-                </div>
                 </InViewport>
 
                 {
