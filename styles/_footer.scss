@@ -6,13 +6,32 @@
     color: cadetblue;
     font-size: 0.9rem;
 
-    a {
-        text-decoration: none;
-        color: cadetblue;
-        transition: all ease 0.3s; 
+    // a {
+    //     text-decoration: none;
+    //     color: cadetblue;
+    //     transition: all ease 0.3s; 
         
-        &:hover {
-            color: rgb(56, 120, 122);
-        }
+    //     &:hover {
+    //         color: rgb(56, 120, 122);
+    //     }
+    // }
+}
+
+.link {
+
+    color: cadetblue;
+    text-decoration: none;
+    transition: all ease 0.3s; 
+
+    &-github:hover {
+        color: rgb(255, 241, 241);
+    }
+    
+    &-soundcloud:hover {
+        color: rgb(255, 81, 0);
+    }
+    
+    &-youtube:hover {
+        color: rgb(255, 30, 0);
     }
 }
