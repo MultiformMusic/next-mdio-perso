@@ -29,7 +29,7 @@ export const PortfolioDetail = ({portfolio}) => {
                                 <div>
                                     <Link href={`/#${portfolio.slug}`}>
                                         <a className="link-back ml-2" style={{textDecoration: 'none'}}>
-                                        <i class="fas fa-long-arrow-alt-left"></i> {''} {getTranslation('back', language)}
+                                        <i className="fas fa-long-arrow-alt-left"></i> {''} {getTranslation('back', language)}
                                         </a>
                                     </Link> 
                                 </div>
