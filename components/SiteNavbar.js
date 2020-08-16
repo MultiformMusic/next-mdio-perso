@@ -12,36 +12,11 @@ const SiteNavbar = source => {
 
     const toggleNavbar = () => {
 
-        const element = window.document.getElementById("navbar-toggler");
-        element.click();
+        if (window.innerWidth < 998) {
+            window.document.getElementById("navbar-toggler").click();
+        }
 
     }
-
-    // const [solidBackground, setSolidBackground] = useState("rgba(23, 34, 45, 1) !important");
-    // let timer = null;
-    // let background = "rgba(23, 34, 45, 1) !important";
-
-    // const handleScroll = () => {
-
-    //     if(timer !== null) {
-    //         clearTimeout(timer);        
-    //     }
-    //     background = "rgba(23, 34, 45, 0.7) !important"
-    //     setSolidBackground("rgba(23, 34, 45, 0.7) !important");
-    //     console.log(solidBackground)
-
-    //     timer = setTimeout(function() {
-    //         background = "rgba(23, 34, 45, 1) !important"
-    //         console.log("set time ut")
-    //         setSolidBackground("rgba(23, 34, 45, 1) !important");
-    //         console.log(solidBackground)
-    //   }, 1000);
-    // }
-    //     useEffect(() => {
-    //         window.addEventListener('scroll', handleScroll);
-    //         return () => window.removeEventListener('scroll', handleScroll);
-    //       });
-
 
     return (
         
@@ -49,7 +24,6 @@ const SiteNavbar = source => {
             className="navbar-dark navbar-background"
             expand="lg" 
             fixed="top"
-            // style={{backgroundColor: solidBackground }}
         >
 
             <Navbar.Brand className="md-navbar-brand">
